@@ -100,7 +100,7 @@ function setup() {
     screenHeight=windowHeight;
 
     // Create an image html element
-    aceSpades = 'https://raw.githubusercontent.com/dthankins/cards/main/ah.png';
+    aceSpades = 'https://dthankins.github.io/cards/ah.png';
     //aceSpades = 'https://lh3.googleusercontent.com/proxy/fhLaCMhn96i1DXEXKAHgoogowSJPTqHiYynamOTs8AEfCPQnTE2ommm0Pp3DSa_4B6QPqnYNsb-hyCRS6plAmjgA52I5xKE';
     kingSpades = 'https://freesvg.org/img/1396931743.png';
     as = createImg(aceSpades);
@@ -149,7 +149,7 @@ function setup() {
         // https://raw.githubusercontent.com/dthankins/cards/main/2c.png
         // added http://cors.io/?
 
-        imagesArray[i] = 'https://raw.githubusercontent.com/dthankins/cards/main/' + imageNamesArray[i] + '.png';
+        imagesArray[i] = 'https://dthankins.github.io/cards/' + imageNamesArray[i] + '.png';
 
         console.log(imagesArray[i]);
 
