@@ -280,9 +280,9 @@ function assignCard(card1, card2,playerID){
 
             // sizing is not understood yet so just trial and error
 
-            image(as,10,10,windowWidth/6, as.height*2*(as.height/as.width));
+            //image(as,10,10,windowWidth/6, as.height*2*(as.height/as.width));
 
-            image(ks,10+10+windowWidth/6,10,windowWidth/6, ks.height*(ks.height/ks.width)/2);
+            //image(ks,10+10+windowWidth/6,10,windowWidth/6, ks.height*(ks.height/ks.width)/2);
 
 
         } 
