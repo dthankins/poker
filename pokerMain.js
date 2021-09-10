@@ -89,7 +89,9 @@ console.log("before setup section");
 
 function setup() {
     console.log("within setup section");
-    createCanvas(windowWidth, windowHeight+100);
+    //createCanvas(windowWidth, windowHeight+100);
+    
+    createCanvas(600, 600);
     
     //angleMode(DEGREES);
     //rectMode(CENTER);
