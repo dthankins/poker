@@ -100,7 +100,7 @@ function setup() {
     screenHeight=windowHeight;
 
     // Create an image html element
-    aceSpades = 'https://dthankins.github.io/cards/ah.png';
+    aceSpades = 'https://raw.githubusercontent.com/dthankins/cards/main/ah.png';
     //aceSpades = 'https://lh3.googleusercontent.com/proxy/fhLaCMhn96i1DXEXKAHgoogowSJPTqHiYynamOTs8AEfCPQnTE2ommm0Pp3DSa_4B6QPqnYNsb-hyCRS6plAmjgA52I5xKE';
     kingSpades = 'https://freesvg.org/img/1396931743.png';
     as = createImg(aceSpades);
@@ -199,7 +199,7 @@ function draw() {
 
     if (nextHand < 1){
 
-        cards = shuffle(cards);
+        //cards = shuffle(cards);
 
         nextHand = 1;
 
@@ -213,7 +213,7 @@ function draw() {
 
     image(as,10,10);
 
-    image(cards[0].cardImage,110,110);
+    image(cards[0].cardImage,25,10);
 
 
     // burn cards 0 and 5 and 9, and 11 -- prob doesnt really matter.
