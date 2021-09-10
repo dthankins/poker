@@ -193,7 +193,8 @@ function draw() {
 
     background(0);
     fill(255, 0, 0);
-    ellipse(111,111,44,44);
+    
+    ellipse(103,175,55,55);
 
     console.log(nextHand);
 
