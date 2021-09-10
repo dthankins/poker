@@ -213,7 +213,7 @@ function draw() {
 
     image(cards[0].cardImage,10,10);
 
-    image(cards[1].cardImage,25,10);
+    image(cards[1].cardImage,85,10);
 
 
     // burn cards 0 and 5 and 9, and 11 -- prob doesnt really matter.
