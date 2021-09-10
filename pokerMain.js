@@ -162,6 +162,8 @@ function setup() {
     for(i=0;i<cards.length;i++){
 
         cards[i].cardImage = createImg(imagesArray[i]);
+        
+        cards[i].cardImage.hide(); // hopefully this keeps the created deck off the whitespace
 
     }
 
