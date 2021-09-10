@@ -212,9 +212,9 @@ function draw() {
 
     }
 
-    image(cards[0].cardImage,10,10);
+    //image(cards[0].cardImage,10,10);
 
-    image(cards[1].cardImage,105,10);
+    //image(cards[1].cardImage,105,10);
 
 
     // burn cards 0 and 5 and 9, and 11 -- prob doesnt really matter.
@@ -233,7 +233,19 @@ function draw() {
     console.log("river: "+ river);
 
 
+    image(cards[2].cardImage,10,10);
+    image(cards[4].cardImage,105,10);
 
+    image(cards[1].cardImage,30,10);
+    image(cards[3].cardImage,405,10);
+
+    image(cards[6].cardImage,10,220);
+    image(cards[7].cardImage,105,220);
+    image(cards[8].cardImage,200,220);
+
+    image(cards[10].cardImage,335,220);
+
+    image(cards[12].cardImage,430,220);
 
 
     
