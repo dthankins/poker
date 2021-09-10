@@ -76,8 +76,8 @@ var imageNamesArray = [
 
 
 
-let as;
-let ks;
+//let as;
+//let ks;
 
 var player1Cards, player2Cards, flop, turn, river;
 
@@ -100,11 +100,11 @@ function setup() {
     screenHeight=windowHeight;
 
     // Create an image html element
-    aceSpades = 'https://raw.githubusercontent.com/dthankins/cards/main/ah.png';
+    //aceSpades = 'https://raw.githubusercontent.com/dthankins/cards/main/ah.png';
     //aceSpades = 'https://lh3.googleusercontent.com/proxy/fhLaCMhn96i1DXEXKAHgoogowSJPTqHiYynamOTs8AEfCPQnTE2ommm0Pp3DSa_4B6QPqnYNsb-hyCRS6plAmjgA52I5xKE';
-    kingSpades = 'https://freesvg.org/img/1396931743.png';
-    as = createImg(aceSpades);
-    ks = createImg(kingSpades);
+    //kingSpades = 'https://freesvg.org/img/1396931743.png';
+    //as = createImg(aceSpades);
+    //ks = createImg(kingSpades);
 
     //as = createImg(aceSapdes)
     //as = createImg('C:\Users\dthan\Documents\CODE\poker\cards\ah.png');
@@ -211,9 +211,9 @@ function draw() {
 
     }
 
-    image(as,10,10);
+    image(cards[0].cardImage,10,10);
 
-    image(cards[0].cardImage,25,10);
+    image(cards[1].cardImage,25,10);
 
 
     // burn cards 0 and 5 and 9, and 11 -- prob doesnt really matter.
