@@ -236,7 +236,7 @@ function draw() {
     image(cards[2].cardImage,10,10);
     image(cards[4].cardImage,105,10);
 
-    image(cards[1].cardImage,30,10);
+    image(cards[1].cardImage,300,10);
     image(cards[3].cardImage,405,10);
 
     image(cards[6].cardImage,10,220);
