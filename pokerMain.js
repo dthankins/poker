@@ -16,10 +16,10 @@ var suit = ["c","d","h","s"];
 var imagesArray = [];
 
 var imageNamesArray = [
-    '13c',
-    '12c',
-    '11c',
-    '10c',
+    'kc',
+    'qc',
+    'jc',
+    'tc',
     '9c',
     '8c',
     '7c',
@@ -28,12 +28,12 @@ var imageNamesArray = [
     '4c',
     '3c',
     '2c',
-    '1c',
+    'ac',
 
-    '13d',
-    '12d',
-    '11d',
-    '10d',
+    'kd',
+    'qd',
+    'jd',
+    'td',
     '9d',
     '8d',
     '7d',
@@ -42,12 +42,12 @@ var imageNamesArray = [
     '4d',
     '3d',
     '2d',
-    '1d',
+    'ad',
 
-    '13h',
-    '12h',
-    '11h',
-    '10h',
+    'kh',
+    'qh',
+    'jh',
+    'th',
     '9h',
     '8h',
     '7h',
@@ -56,12 +56,12 @@ var imageNamesArray = [
     '4h',
     '3h',
     '2h',
-    '1h',
+    'ah',
 
-    '13s',
-    '12s',
-    '11s',
-    '10s',
+    'ks',
+    'qs',
+    'js',
+    'ts',
     '9s',
     '8s',
     '7s',
@@ -70,7 +70,7 @@ var imageNamesArray = [
     '4s',
     '3s',
     '2s',
-    '1s'];
+    'as'];
 
 
 
