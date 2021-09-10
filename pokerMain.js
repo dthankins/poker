@@ -199,7 +199,7 @@ function draw() {
 
     if (nextHand < 1){
 
-        //cards = shuffle(cards);
+        cards = shuffle(cards);
 
         nextHand = 1;
 
@@ -213,7 +213,7 @@ function draw() {
 
     image(cards[0].cardImage,10,10);
 
-    image(cards[1].cardImage,95,10);
+    image(cards[1].cardImage,105,10);
 
 
     // burn cards 0 and 5 and 9, and 11 -- prob doesnt really matter.
