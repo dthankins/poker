@@ -36,8 +36,8 @@ function setup() {
 
     frameRate(10);
 
-    screenWidth=windowWidth;
-    screenHeight=windowHeight;
+    var screenWidth=windowWidth;
+    var screenHeight=windowHeight;
 
     console.log("END setup section");
 
@@ -59,13 +59,13 @@ function draw() {
 
     //background(0);
 
-    fill(255, 0, 0);
+    //fill(255, 0, 0);
     
-    ellipse(103,175,55,55);
+    //ellipse(103,175,55,55);
 
 
     
-
+    fill(255, 255, 0);
     rect(flopCornerTopLeftX, flopCornerTopLeftY, flopCornerTopRightX, flopCornerBottomLeftY, 20);
 
 
