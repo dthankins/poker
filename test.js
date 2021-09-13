@@ -1,10 +1,6 @@
 console.log("end global var section");
 
-var flop1 = createImg('https://dthankins.github.io/cards/ah.png');
-var flop2 = createImg('https://dthankins.github.io/cards/as.png');
-var flop3 = createImg('https://dthankins.github.io/cards/ad.png');
-var turn = createImg('https://dthankins.github.io/cards/ac.png');
-var river = createImg('https://dthankins.github.io/cards/kh.png');
+
 /*
 flop1.hide();
 flop2.hide();
@@ -13,14 +9,32 @@ turn.hide();
 river.hide();
 */
 
+/*
 var flopCornerTopLeftX = 0;
 var flopCornerTopRightX = 300;
 
 var flopCornerTopLeftY = 210;
 var flopCornerBottomLeftY = 300;
+*/
 
 
 
+let img;
+let flop1,flop2,flop3,turn,river;
+
+var dealEvent = false;
+var flopEvent = false;
+var turnEvent = false;
+var riverEvent = false;
+
+function preload() {
+  //img = loadImage('assets/laDefense.jpg');
+    flop1 = loadImage('https://dthankins.github.io/cards/ah.png');
+    flop2 = loadImage('https://dthankins.github.io/cards/as.png');
+    flop3 = loadImage('https://dthankins.github.io/cards/ad.png');
+    turn = loadImage('https://dthankins.github.io/cards/ac.png');
+    river = loadImage('https://dthankins.github.io/cards/kh.png');
+}
 
 
 
@@ -36,14 +50,11 @@ function setup() {
 
     frameRate(10);
 
-    var screenWidth=windowWidth;
-    var screenHeight=windowHeight;
-
     console.log("END setup section");
 
     console.log(" next is draw section");
     
-    noLoop();
+    // noLoop();
 
     background(0);
     
@@ -57,30 +68,117 @@ function draw() {
 
     console.log(" within draw section");
 
-    //background(0);
+    dealEvent = keyTyped();
 
-    //fill(255, 0, 0);
+    if(dealEvent==='flop'){
+
+        flopEvent=true;
+
+    }
     
-    //ellipse(103,175,55,55);
+    if(dealEvent==='turn'){
+
+        turnEvent=true;
+
+    }
+
+    if(dealEvent==='river'){
+
+        riverEvent=true;
+
+    }
 
 
-    
+    console.log(dealEvent);
+
+
+  
     fill(255, 255, 0);
+
+    var flopCornerTopLeftX = 5;
+    var flopCornerTopRightX = 304;
+
+    var flopCornerTopLeftY = 210;
+    var flopCornerBottomLeftY = 150;
+
+    let turnX = 340;
+    let turnY = 220;
+
+    let riverX = 470;
+    let riverY = 220;
+
+    stroke('yellow');
+    noFill();
+    strokeWeight(4);
+
+    console.log(flopCornerTopLeftX, flopCornerTopLeftY, flopCornerTopRightX, flopCornerBottomLeftY);
+
     rect(flopCornerTopLeftX, flopCornerTopLeftY, flopCornerTopRightX, flopCornerBottomLeftY, 20);
 
+    rect(turnX-10, flopCornerTopLeftY, 112, flopCornerBottomLeftY, 20);
 
-    image(flop1,10,220);
-    image(flop2,105,220);
-    image(flop3,200,220);
+    rect(riverX-10, flopCornerTopLeftY, 112, flopCornerBottomLeftY, 20);
 
-    image(turn,335,220);
 
-    image(river,430,220);
+
+    if (flopEvent){
+
+        image(flop1,flopCornerTopLeftX+10,220);
+        image(flop2,flopCornerTopLeftX+107,220);
+        image(flop3,flopCornerTopLeftX+201,220);
+
+    }
+
+
+    
+
+    
+
+    if (turnEvent){
+        if (flopEvent){
+            image(turn,turnX,turnY);
+        } else {
+            turnEvent = false;
+        }
+    }
+
+    
+
+    
+    if (riverEvent){
+        
+        if (turnEvent){
+            image(river,riverX,riverY);
+        } else {
+            riverEvent = false;
+        }
+        
+        
+    }
+    
 
     console.log(" END draw section");
 
 
 } // end main draw function
+
+
+function keyTyped() {
+    var _dealEvent;
+  if (key === 'f') {
+    _dealEvent = 'flop';
+  } else if (key === 't') {
+    _dealEvent = 'turn';
+  } else if (key === 'r') {
+    _dealEvent = 'river';
+  } else {
+    return false //_dealEvent = 'nothing';
+  }
+  
+  return _dealEvent
+  // uncomment to prevent any default behavior
+  // return false;
+}
 
 
 
