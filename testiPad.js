@@ -109,7 +109,7 @@ function draw() {
 
     
 
-    stroke('yellow');
+    stroke('red');
     noFill();
     strokeWeight(4);
 
