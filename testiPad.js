@@ -1,23 +1,73 @@
 console.log("end global var section");
 
 
-/*
-flop1.hide();
-flop2.hide();
-flop3.hide();
-turn.hide();
-river.hide();
-*/
+var cards = [];
 
-/*
-var flopCornerTopLeftX = 0;
-var flopCornerTopRightX = 300;
+var nextHand = 0;
 
-var flopCornerTopLeftY = 210;
-var flopCornerBottomLeftY = 300;
-*/
+var suit = ["c","d","h","s"];
+
+var imagesArray = [];
+
+var imageNamesArray = [
+    'kc',
+    'qc',
+    'jc',
+    'tc',
+    '9c',
+    '8c',
+    '7c',
+    '6c',
+    '5c',
+    '4c',
+    '3c',
+    '2c',
+    'ac',
+
+    'kd',
+    'qd',
+    'jd',
+    'td',
+    '9d',
+    '8d',
+    '7d',
+    '6d',
+    '5d',
+    '4d',
+    '3d',
+    '2d',
+    'ad',
+
+    'kh',
+    'qh',
+    'jh',
+    'th',
+    '9h',
+    '8h',
+    '7h',
+    '6h',
+    '5h',
+    '4h',
+    '3h',
+    '2h',
+    'ah',
+
+    'ks',
+    'qs',
+    'js',
+    'ts',
+    '9s',
+    '8s',
+    '7s',
+    '6s',
+    '5s',
+    '4s',
+    '3s',
+    '2s',
+    'as'];
 
 
+var player1Cards, player2Cards; //, flop, turn, river;
 
 let img;
 let flop1,flop2,flop3,turn,river;
@@ -30,22 +80,45 @@ var riverEvent = false;
 var flopCornerTopLeftX = 5;
 var flopCornerTopRightX = 304;
 
-var flopCornerTopLeftY = 210;
+var flopCornerTopLeftY = 100;//210;
 var flopCornerBottomLeftY = 150;
 
 let turnX = 340;
-let turnY = 220;
+let turnY = 110;//220;
 
 let riverX = 470;
-let riverY = 220;
+let riverY = 110;//220;
+
+for (i = 0; i <suit.length; i++) {
+
+    for (rank = 13; rank > 0; rank--) {
+    cards.push({
+      rank: rank,
+      suit: suit[i] // previously just suit
+      
+    });
+    }
+}
+
+for(i=0;i<imageNamesArray.length;i++){
+    
+    //console.log(imageNamesArray[i]);
+
+    imagesArray[i] = 'https://dthankins.github.io/cards/' + imageNamesArray[i] + '.png';
+
+    //console.log(imagesArray[i]);
+
+}
+
+
 
 function preload() {
-  //img = loadImage('assets/laDefense.jpg');
-    flop1 = loadImage('https://dthankins.github.io/cards/ah.png');
-    flop2 = loadImage('https://dthankins.github.io/cards/as.png');
-    flop3 = loadImage('https://dthankins.github.io/cards/ad.png');
-    turn = loadImage('https://dthankins.github.io/cards/ac.png');
-    river = loadImage('https://dthankins.github.io/cards/kh.png');
+
+
+    for(i=0;i<cards.length;i++){
+
+        cards[i].cardImage = loadImage(imagesArray[i]);
+    }
 }
 
 
@@ -69,6 +142,22 @@ function setup() {
     // noLoop();
 
     background(0);
+
+    if (nextHand < 1){
+
+        cards = shuffle(cards);
+
+        nextHand = 1;
+
+    }
+
+    flop1 = cards[0].cardImage;
+    flop2 = cards[1].cardImage;
+    flop3 = cards[2].cardImage;
+    turn = cards[3].cardImage;
+    river = cards[4].cardImage;
+
+    
     
   
 } // end setup
@@ -125,9 +214,9 @@ function draw() {
 
     if (flopEvent){
 
-        image(flop1,flopCornerTopLeftX+10,220);
-        image(flop2,flopCornerTopLeftX+107,220);
-        image(flop3,flopCornerTopLeftX+201,220);
+        image(flop1,flopCornerTopLeftX+10,110);
+        image(flop2,flopCornerTopLeftX+107,110);
+        image(flop3,flopCornerTopLeftX+201,110);
 
     }
 
@@ -164,20 +253,22 @@ function draw() {
 
 } // end main draw function
 
-/*
 
-rect(flopCornerTopLeftX, flopCornerTopLeftY, flopCornerTopRightX, flopCornerBottomLeftY, 20);
+function shuffle(aDeck){
 
-rect(turnX-10, flopCornerTopLeftY, 112, flopCornerBottomLeftY, 20);
+    var j, x, i;
+    for (i = aDeck.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = aDeck[i];
+        aDeck[i] = aDeck[j];
+        aDeck[j] = x;
+    }
 
-rect(riverX-10, flopCornerTopLeftY, 112, flopCornerBottomLeftY, 20);
+    return aDeck;
 
-*/
+}  // end shuffle
 
 
-
-//function keyTyped() {
-//mouseClicked
 function mousePressed() {
     var _dealEvent;
   if (mouseX>flopCornerTopLeftX && mouseX< (flopCornerTopLeftX+flopCornerTopRightX) 
@@ -190,27 +281,17 @@ function mousePressed() {
     && mouseY>flopCornerTopLeftY && mouseY <(flopCornerTopLeftY+flopCornerBottomLeftY)) {
     _dealEvent = 'river';
   } else {
-    return false //_dealEvent = 'nothing';
+    return false 
   }
-  
-  //return _dealEvent
-
+ 
   dealEvent=_dealEvent;
 
-  // uncomment to prevent any default behavior
-  // return false;
-}
+}  // end mousePressed
 
 
 
 
-/*
-function mousePressed() {
 
-    return false; // prevent any default behaviour
-
-} // end mousePressed
-*/
 
 
 
