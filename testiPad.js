@@ -177,7 +177,8 @@ rect(riverX-10, flopCornerTopLeftY, 112, flopCornerBottomLeftY, 20);
 
 
 //function keyTyped() {
-function mouseClicked() {
+//mouseClicked
+function mousePressed() {
     var _dealEvent;
   if (mouseX>flopCornerTopLeftX && mouseX< (flopCornerTopLeftX+flopCornerTopRightX) 
     && mouseY>flopCornerTopLeftY && mouseY <(flopCornerTopLeftY+flopCornerBottomLeftY)) {
