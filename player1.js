@@ -1,10 +1,3 @@
-// I am stuck not being able to display the card images for some reason.
-
-// maybe if i preload?
-
-// for some reason it willl only show preloaded images by exact name this time 
-// where as i did not even use a preload function in the main board
-
 var imageAddressStringArray=[];
 
 var stringToPush;
@@ -17,10 +10,10 @@ var card1,card2;
 var card1Image, card2Image;
 
 var namesArray = [
-    'kc',
-    'qc',
-    'jc',
-    'tc',
+    '13c',
+    '12c',
+    '11c',
+    '10c',
     '9c',
     '8c',
     '7c',
@@ -29,12 +22,12 @@ var namesArray = [
     '4c',
     '3c',
     '2c',
-    'ac',
+    '1c',
 
-    'kd',
-    'qd',
-    'jd',
-    'td',
+    '13d',
+    '12d',
+    '11d',
+    '10d',
     '9d',
     '8d',
     '7d',
@@ -43,12 +36,12 @@ var namesArray = [
     '4d',
     '3d',
     '2d',
-    'ad',
+    '1d',
 
-    'kh',
-    'qh',
-    'jh',
-    'th',
+    '13h',
+    '12h',
+    '11h',
+    '10h',
     '9h',
     '8h',
     '7h',
@@ -57,12 +50,12 @@ var namesArray = [
     '4h',
     '3h',
     '2h',
-    'ah',
+    '1h',
 
-    'ks',
-    'qs',
-    'js',
-    'ts',
+    '13s',
+    '12s',
+    '11s',
+    '10s',
     '9s',
     '8s',
     '7s',
@@ -71,7 +64,8 @@ var namesArray = [
     '4s',
     '3s',
     '2s',
-    'as'];
+    '1s'];
+
 
 var imagesArray = [];
 
@@ -81,8 +75,7 @@ console.log("END global var section");
 
 function preload() {
 
-  // img = loadImage('https://dthankins.github.io/cards/2h.png');
-  // img2 = loadImage('https://dthankins.github.io/cards/9s.png');
+
 
   for(i=0;i<namesArray.length;i++){
 
@@ -92,7 +85,6 @@ function preload() {
 
   }
 
-  //= 'https://dthankins.github.io/cards/' + namesArray[i] + '.png';
 
 }
 
@@ -106,8 +98,7 @@ function setup() {
   //frameRate(10);
 
   
-  
-  //image(img,110,110);
+
 
 
 
@@ -178,33 +169,7 @@ function setup() {
     console.log(the23Cards[5]);
     console.log(the23Cards[6]);
 
- 
-    
-    
-/*
-// i moved all this down so everything is in gotdata
-    
-  }
-
-  //console.log("THE the23Cards BELOW outside of gotData: ");
-  //console.log(the23Cards);
-
-  function errData(err){
-    console.log('error danny!');
-    console.log(err);
-
-  }
-
-  */
-
-
-
-
-  
-
   //noLoop();
-
-  
 
   console.log('the23Cards UP NEXT: ');
   console.log(the23Cards);
@@ -213,6 +178,7 @@ function setup() {
   console.log('player1 cards UP NEXT: ');
   console.log(the23Cards[5], the23Cards[6]);
 
+// not sure if the next part is needed at all
 
   for(i=0;i<the23Cards.length;i++){ // we only need 23 cards max bc 9 people 2 cards each plus 5 board cards
 
@@ -235,74 +201,35 @@ function setup() {
       the23Cards[i][0]= 'a';
     }
     
-    // next i use imageAddressStringArray instead of imageAddressString that i used in the main board js
-    stringToPush = 'https://dthankins.github.io/cards/' + the23Cards[i] + '.png';
-    //console.log(stringToPush);
-    imageAddressStringArray[i] = stringToPush;
-    //cards[i].cardImage = loadImage(imageAddressString);
-    // since i did not create the cards here i cannot use this but downt need to use the object just make new array
 
   }
 
 
 
-  
-/*
-  flop1 = cards[0].cardImage;
-  flop2 = cards[1].cardImage;
-  flop3 = cards[2].cardImage;
-  turn = cards[3].cardImage;
-  river = cards[4].cardImage;
-*/
+ 
 
-  console.log('imageAddressStringArray BELOW');
-  console.log(imageAddressStringArray);
-  console.log('imageAddressStringArray [5] BELOW');
-  console.log(imageAddressStringArray[5]);
-  console.log('get the card images next');
+  console.log('cards needed 5: ' + the23Cards[5]);
+  console.log('cards needed 6: ' + the23Cards[6]);
 
-  //var dog = loadImage('https://dthankins.github.io/cards/2h.png');
-  
-  //image(img,310,110);
-  //image(img2,420,110);
+  card1 = the23Cards[5].toString();
+  card2 = the23Cards[6].toString();
 
-  //https://dthankins.github.io/cards/9s.png
+  console.log('card1: ' + card1);
+  console.log('card2: ' + card2);
 
+  var card1Index = namesArray.indexOf(card1);
+  var card2Index = namesArray.indexOf(card2);
 
-  card1 = imageAddressStringArray[5];
-  card2 = imageAddressStringArray[6];
+  console.log('card1Index: ' + card1Index);
+  console.log('card2Index: ' + card2Index);
 
-  console.log(card1)
-  console.log(card2);
-  
-
-  card1Image = loadImage(card1);
-  card2Image = loadImage(card2);
-/*
-  console.log(card2Image);
-
-
-
-  console.log('images should be loaded');
-
-  console.log('card1Image up next:');
-  console.log(card1Image);
-
-  //image(loadImage(card1),110,110);
-
-  image(card1Image,110,110);
-  */
-
-
-
-  image(card1Image,110,110);
-  image(card2Image,360,110);
+  image(imagesArray[card1Index],110,110);
+  image(imagesArray[card2Index],210,110);
 
   
   }
 
-  //console.log("THE the23Cards BELOW outside of gotData: ");
-  //console.log(the23Cards);
+
 
   function errData(err){
     console.log('error danny!');
@@ -325,12 +252,6 @@ function draw() {
 
   
    
-
-  //image(card1Image,110,110);
-  //image(img,360,110);
-
-
-    
 
  
 
