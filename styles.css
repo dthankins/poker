@@ -1,0 +1,100 @@
+/* I remember nothing about CSS swapRads.css */
+
+.indent{
+    position: absolute;
+    
+    right: 75%;
+}
+
+
+
+
+
+
+hr {
+    border: none;
+    height: 3px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
+}
+
+.red {
+    background-color: red;
+}
+
+.center {
+    text-align: center;
+}
+
+.submitButton {
+    border-color: gray;  
+    border-width: 3px;  
+    cursor: pointer;
+    border-radius: 5px;
+ 
+    width: 200px;
+    padding: 5px 10px;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+
+}
+
+
+
+*:focus {
+    outline: none;
+}
+
+body {
+    background-color: lightgray;
+}
+
+
+.button {
+    appearance: none;
+    -webkit-appearance: none;   /*      Removes default chrome and safari style */
+    -moz-appearance: none;      /*     Removes Default Firefox style   */
+    background-color: white;
+    border-color: blue;  
+    cursor: pointer;
+    border-radius: 5px;
+ 
+    width: 100px;
+    padding: 2px 10px;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+
+.buttonPressed{
+    background-color: blue;
+    color: white;
+
+    appearance: none;
+    -webkit-appearance: none;   /*      Removes default chrome and safari style */
+    -moz-appearance: none;      /*     Removes Default Firefox style   */
+   
+    cursor: pointer;
+    border-radius: 5px;
+ 
+    width: 100px;
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+
+.hideDIV{
+    display: none;
+}
+
