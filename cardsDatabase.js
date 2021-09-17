@@ -222,7 +222,7 @@ function setup() {
 
 */
 
-  for(i=0;i<5;i++){  // here I am trying to shuffle and save 5 decks to test.
+  //for(i=0;i<5;i++){  // here I am trying to shuffle and save 5 decks to test.
 
     cards = shuffle(cards);
 
@@ -235,7 +235,7 @@ function setup() {
 
     decks.push(the23Cards);  // cards is never sent.
 
-  }
+ // }
 
   
 
