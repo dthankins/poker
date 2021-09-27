@@ -409,7 +409,7 @@ function draw() {
   turn = cards[3].cardImage;
   river = cards[4].cardImage;
 
-  cardWidth = windowWidth/6;
+  cardWidth = windowWidth/6-5;
 
   flop1.resize(cardWidth,0);
   flop2.resize(cardWidth,0);
