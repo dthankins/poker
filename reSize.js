@@ -335,7 +335,7 @@ function setup() {
     }
     
 
-    imageAddressString = 'https://dthankins.github.io/cards/' + the23Cards[i] + '.jpg'; // png
+    imageAddressString = 'https://dthankins.github.io/cards/' + the23Cards[i] + '.Jpg'; // png
     cards[i].cardImage = loadImage(imageAddressString);
 
   }
