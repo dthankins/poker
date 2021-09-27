@@ -356,12 +356,14 @@ function setup() {
   */
 
   
-
+// move to draw
+/*
   flop1 = cards[0].cardImage;
   flop2 = cards[1].cardImage;
   flop3 = cards[2].cardImage;
   turn = cards[3].cardImage;
   river = cards[4].cardImage;
+  */
 
 /*
 cards 0 to 4 are the community cards
@@ -400,6 +402,12 @@ function draw() {
   stroke('yellow');
   noFill();
   strokeWeight(4);
+
+  flop1 = cards[0].cardImage;
+  flop2 = cards[1].cardImage;
+  flop3 = cards[2].cardImage;
+  turn = cards[3].cardImage;
+  river = cards[4].cardImage;
 
   cardWidth = windowWidth/6;
 
@@ -457,4 +465,5 @@ function draw() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+    background(0);
 } // end windowResized
