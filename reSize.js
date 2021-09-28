@@ -247,7 +247,7 @@ function setup() {
 
 
 
-  cards = shuffle(cards);
+  //cards = shuffle(cards);
 
   for(n=0;n<24;n++){
 
@@ -335,7 +335,7 @@ function setup() {
     }
     
 
-    imageAddressString = 'https://dthankins.github.io/cards/' + the23Cards[i] + '.Jpg'; // png
+    imageAddressString = 'https://dthankins.github.io/cards/' + the23Cards[i] + '.Jpg'; //png jpg
     cards[i].cardImage = loadImage(imageAddressString);
 
   }
@@ -401,7 +401,7 @@ function draw() {
 
   stroke('yellow');
   noFill();
-  strokeWeight(4);
+  
 
   flop1 = cards[0].cardImage;
   flop2 = cards[1].cardImage;
@@ -409,9 +409,11 @@ function draw() {
   turn = cards[3].cardImage;
   river = cards[4].cardImage;
 
-  cardWidth = windowWidth/6-5;
+  cardWidth = windowWidth/6;
 
-  flop1.resize(cardWidth,0);
+  strokeWeight(cardWidth/100);
+
+  flop1.resize(cardWidth,0); // since there is some variation in original sizes, decrease by 10
   flop2.resize(cardWidth,0);
   flop3.resize(cardWidth,0);
   turn.resize(cardWidth,0);
@@ -466,4 +468,5 @@ function draw() {
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     background(0);
+    document.location.reload(true);
 } // end windowResized
