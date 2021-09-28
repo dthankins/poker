@@ -6,6 +6,14 @@ https://console.firebase.google.com/project/poker-2ba41/database/poker-2ba41-def
 file:///C:/Users/dthan/Documents/CODE/poker/database.html
 
 
+try to disply like on the display deck pages without shuffling that way refresh does nothing
+
+separate shuffle deal
+
+set up page
+
+
+
 */
 //***********
 
@@ -15,6 +23,8 @@ console.log("BEGIN global var section");
 var cardWidth, windowWidth, cardHeight, yStartCard, padding, xStartCard;
 
 var rectWidthFlop, rectWidthTurn, rectHeight, rectX, rectY;
+
+var buttonX, buttonY, buttonWidth, buttonHeight;
 
 
 
@@ -247,7 +257,9 @@ function setup() {
 
 
 
-  //cards = shuffle(cards);
+  cards = shuffle(cards);
+
+
 
   for(n=0;n<24;n++){
 
@@ -312,6 +324,8 @@ function setup() {
   //noLoop();
 
   background(0);
+
+
 
   for(i=0;i<the23Cards.length;i++){ // we only need 23 cards max bc 9 people 2 cards each plus 5 board cards
 
@@ -391,7 +405,27 @@ player 9 is 21,22
 
 function draw() {
 
+  
+
   //console.log("BEGIN draw");
+
+  if(dealEvent==='flop'){
+
+      flopEvent=true;
+
+  }
+  
+  if(dealEvent==='turn'){
+
+      turnEvent=true;
+
+  }
+
+  if(dealEvent==='river'){
+
+      riverEvent=true;
+
+  }
 
   
   
@@ -430,15 +464,8 @@ function draw() {
   rectX = xStartCard - padding;
   rectY = yStartCard-padding;
 
-  console.log('cardWidth: ' + cardWidth)
-  console.log('windowWidth: ' + windowWidth)
-  console.log('cardHeight: ' + cardHeight)
-  console.log('yStartCard: ' + yStartCard)
-  console.log('padding: ' + padding)
 
 
-
-  
 
   rect(rectX, rectY , rectWidthFlop, rectHeight, 20);
 
@@ -447,26 +474,174 @@ function draw() {
   rect(rectX + rectWidthFlop + cardWidth + 6 * padding, rectY, rectWidthTurn, rectHeight, 20);
 
 
+  makeButton('Shuffle');
+  // console.log('buttonWidth: ' + buttonWidth);
+  // console.log('buttonHeight: ' + buttonHeight);
 
 
 
-  image(flop1, xStartCard, yStartCard);
-  image(flop2, xStartCard + cardWidth + padding, yStartCard);
-  image(flop3, xStartCard + cardWidth*2 + padding*2, yStartCard);
+  if (flopEvent){
 
-  image(turn,xStartCard + cardWidth*3 + padding*6,yStartCard);
+    image(flop1, xStartCard, yStartCard);
+    image(flop2, xStartCard + cardWidth + padding, yStartCard);
+    image(flop3, xStartCard + cardWidth*2 + padding*2, yStartCard);
 
-  image(river,xStartCard + cardWidth*4 + padding*10,yStartCard);
+     // image(flop1,flopCornerTopLeftX+10,110);
+     // image(flop2,flopCornerTopLeftX+107,110);
+     // image(flop3,flopCornerTopLeftX+201,110);
 
-    
+  }
 
 
+  
 
+  
+
+  if (turnEvent){
+      if (flopEvent){
+          // image(turn,turnX,turnY);
+          image(turn,xStartCard + cardWidth*3 + padding*6,yStartCard);
+
+
+      } else {
+          turnEvent = false;
+      }
+  }
+
+  
+
+  
+  if (riverEvent){
+      
+      if (turnEvent){
+          //image(river,riverX,riverY);
+          image(river,xStartCard + cardWidth*4 + padding*10,yStartCard);
+      } else {
+          riverEvent = false;
+      }
+      
+      
+  }
+
+  //makeButton('Shuffle');
+
+  
 
 } // end draw
+
+// ****************************************************************************************************
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
     background(0);
     document.location.reload(true);
 } // end windowResized
+
+// ****************************************************************************************************
+
+function mousePressed() {
+  console.log('mousePressed');
+  console.log('mouseX: ' + mouseX);
+  console.log('buttonX: ' + buttonX);
+  console.log('mouseY: ' + mouseY);
+  console.log('buttonY: ' + buttonY);
+
+  console.log('buttonX+buttonWidth: ' + (buttonX+buttonWidth));
+  console.log('buttonY+buttonHeight: ' + (buttonY+buttonHeight));
+  
+
+
+  //var clickedButton = wasButtonClicked();
+  var _dealEvent;
+  if (mouseX>rectX && mouseX< (rectX+rectWidthFlop) 
+    && mouseY>rectY && mouseY <(rectY+rectHeight)) {
+    _dealEvent = 'flop';
+  } else if (mouseX>(rectX + rectWidthFlop + 2 * padding) && mouseX< (rectX + rectWidthFlop + 2 * padding + rectWidthTurn) 
+    && mouseY>rectY && mouseY <(rectY+rectHeight)) {
+    _dealEvent = 'turn';
+  } else if (mouseX>rectX + rectWidthFlop + cardWidth + 6 * padding 
+    && mouseX< (rectX + rectWidthFlop + cardWidth + 6 * padding + rectWidthTurn) 
+    && mouseY>rectY && mouseY <(rectY+rectHeight)) {
+    _dealEvent = 'river';
+  } else if (mouseX>buttonX && mouseX < (buttonX+buttonWidth) 
+    && mouseY>buttonY && mouseY <(buttonY+buttonHeight)) {
+    
+    console.log('SHUFFLE PRESSED');
+    //cards = shuffle(cards);
+    //alert('button pressed');
+
+    if (confirm("Are you sure you want to SHUFFLE now?")) {
+      document.location.reload(true);
+    } 
+    
+
+  } else {
+    return false 
+  }
+ 
+  dealEvent=_dealEvent;
+
+  //shuffle button
+  //rect(buttonX,buttonY,buttonWidth,buttonHeight,20);
+
+  
+  //console.log('clickedButton');
+  
+  
+  
+
+
+
+}  // end mousePressed
+
+// ****************************************************************************************************
+
+function shuffle(aDeck){
+
+    var j, x, i;
+    for (i = aDeck.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = aDeck[i];
+        aDeck[i] = aDeck[j];
+        aDeck[j] = x;
+    }
+
+    return aDeck;
+
+}  // end shuffle
+
+
+// ****************************************************************************************************
+
+function makeButton(buttonName){
+
+
+  buttonX = rectX*2;
+  buttonY = rectY/4;
+  buttonWidth = cardWidth/2;
+  buttonHeight = buttonWidth/2;
+
+  //console.log('buttonWidth : ' + buttonWidth);
+  //console.log('buttonHeight : ' + buttonHeight);
+
+  strokeWeight(cardWidth/100);
+  stroke('orange');
+  fill('orange');
+  rect(buttonX,buttonY,buttonWidth,buttonHeight,20);
+
+  fill('black');
+  //noStroke();
+  textSize(buttonWidth*0.7-padding*4);
+  text(buttonName,buttonX+padding/2,buttonY+padding*3);
+
+  
+   
+
+}  // makeButton
+
+
+// ****************************************************************************************************
+
+
+  
+    
